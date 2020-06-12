@@ -27,3 +27,35 @@
 
 </body>
 </html>
+
+<?php 
+
+	include('dbcon.php');
+	if(isset($_post['login'])){
+		$username = $_post['username'];
+		$password = $_post['password'];
+
+		$query = "SELECT * FROM 'admin' WHERE 'username'='$username' AND 'password'='$password'";
+
+		$execute = mysqli_query($conn,$query);
+		$row = mysqli_num_rows($execute);
+		if($row <1){
+			?>
+			<script>
+			alert('Username and Password Mismatch!!');
+			window.open('login.php','_self');
+		</script>
+		<?php
+		}
+		else{
+			$data = mysqli_fetch_assoc($execute);
+
+			$id = $data('id');
+			session_start();
+
+			$_SESSION['uid']=$id;
+			header('location:admin/admindash.php');
+		}
+	}
+	
+ ?>
