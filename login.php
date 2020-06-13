@@ -1,7 +1,7 @@
 <?php 
 
 	session_start();
-	if($_SESSION['uid']){
+	if(isset($_SESSION['uid'])){
 		header('location:admin/admindash.php');
 	}
  ?>
