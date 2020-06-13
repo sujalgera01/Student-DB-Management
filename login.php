@@ -1,3 +1,11 @@
+<?php 
+
+	session_start();
+	if($_SESSION['uid']){
+		header('location:admin/admindash.php');
+	}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +15,7 @@
 <body>
 
 	<h1>Admin Login</h1>
-	<form action="login.php" method="post">
+	<form method="post">
 		
 		<table>
 			<tr>
@@ -35,11 +43,11 @@
 		$username = $_post['username'];
 		$password = $_post['password'];
 
-		$query = "SELECT * FROM 'admin' WHERE 'username'='$username' AND 'password'='$password'";
+		$qry = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
 
-		$execute = mysqli_query($conn,$query);
-		$row = mysqli_num_rows($execute);
-		if($row <1){
+		$run = mysqli_query($conn,$qry);
+		$row_cnt = mysqli_num_rows($run);
+		if($row_cnt<1){
 			?>
 			<script>
 			alert('Username and Password Mismatch!!');
@@ -48,10 +56,9 @@
 		<?php
 		}
 		else{
-			$data = mysqli_fetch_assoc($execute);
+			$data = mysqli_fetch_assoc($run);
 
-			$id = $data('id');
-			session_start();
+			$id = $data['id'];
 
 			$_SESSION['uid']=$id;
 			header('location:admin/admindash.php');
