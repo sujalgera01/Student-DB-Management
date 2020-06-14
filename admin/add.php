@@ -15,6 +15,8 @@
   ?>
 
   <h1>Welcome to Admin dashboard</h1>
+  <h4><a href="admindash.php" style="float: right;">Back to Dashboard</a></h4>
+  <br>
   <h4><a href="logout.php" style="float: right;">Logout</a></h4>
 
 
