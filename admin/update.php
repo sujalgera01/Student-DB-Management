@@ -5,7 +5,7 @@
 		echo "";
 	}
 	else{
-		
+		header('location: ../login.php');
 	}
 
  ?>
@@ -57,8 +57,15 @@
 		$run = mysqli_query($conn,$qry);
 		
 
-		if(mysqli_num_rows($run)<1){
-			echo "<tr><td colspan='5'>No Record Found</td></tr>";
+		if($run == true){
+
+
+		$result = mysqli_num_rows($run);
+		if($result<1){
+			echo "No Record Found";
+		}
+
+			
 		}
 		else{
 			$count = 0;

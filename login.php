@@ -15,7 +15,7 @@
 <body>
 
 	<h1>Admin Login</h1>
-	<form method="post">
+	<form method="post" action="login.php">
 		
 		<table>
 			<tr>
@@ -39,15 +39,19 @@
 <?php 
 
 	include('dbcon.php');
-	if(isset($_post['login'])){
-		$username = $_post['username'];
-		$password = $_post['password'];
+	if(isset($_POST['login']))
+	{
+		$username = $_POST['username'];
+		$password = $_POST['password'];
 
-		$qry = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
+		$qry = "SELECT * FROM `admin` WHERE `username`='$username' AND `password`='$password'";
 
 		$run = mysqli_query($conn,$qry);
-		$row_cnt = mysqli_num_rows($run);
-		if($row_cnt<1){
+		
+		if($run == true){
+			$result = mysqli_num_rows($run);
+			if($result<1){
+
 			?>
 			<script>
 			alert('Username and Password Mismatch!!');
@@ -60,9 +64,11 @@
 
 			$id = $data['id'];
 
-			$_SESSION['uid']=$id;
+			$_SESSION['uid'] = $id;
 			header('location:admin/admindash.php');
 		}
 	}
+	}
+
 	
  ?>

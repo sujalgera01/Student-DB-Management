@@ -5,7 +5,7 @@
 		echo "";
 	}
 	else{
-		
+		header('location: ../login.php');	
 	}
 
  ?>
