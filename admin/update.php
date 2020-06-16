@@ -52,20 +52,18 @@
 		$std = $_POST['std'];
 		$name = $_POST['stuname'];
 
-		$qry = "SELECT * FROM 'student' WHERE 'std'='$std' AND 'name' LIKE '%$name%'";
+		$qry = "SELECT * FROM `student` WHERE `std`='$std' AND `name` LIKE '%$name%'";
 
 		$run = mysqli_query($conn,$qry);
 		
 
-		if($run == true){
+		if($run == true)
+		{
 
 
 		$result = mysqli_num_rows($run);
 		if($result<1){
 			echo "No Record Found";
-		}
-
-			
 		}
 		else{
 			$count = 0;
@@ -78,7 +76,7 @@
 		<td><img src="../dataimages/<?php echo $data['image']; ?>" style="max-width: 100px;"></td>
 		<td><?php echo $data['name']; ?></td>
 		<td><?php echo $data['rollno']; ?></td>
-		<td><a href="updateform.php?sid=<?php echo $data['id']?>"></a></td>
+		<td><a href="updateform.php?sid=<?php echo $data['id']?>">Edit</a></td>
 
 	</tr>
 
@@ -86,6 +84,10 @@
 				<?php
 			}
 		}
+
+			
+		}
+		
 	}
  ?>
 
