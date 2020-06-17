@@ -3,7 +3,7 @@
 	function showdetails($std, $rollno){
 	include('dbcon.php');
 
-	$sql = "DELETE FROM `student` WHERE `std`='$std' AND `rollno`='$rollno'";
+	$sql = "SELECT * FROM `student` WHERE `std`='$std' AND `rollno`='$rollno'";
 	$run = mysqli_query($conn,$sql);
 
 	if($run == true)
@@ -33,7 +33,7 @@
 				</tr>
 				<tr>
 					<th>Contact</th>
-					<td><?php echo $data['pcon'];?></td>
+					<td><?php echo $data['contact'];?></td>
 				</tr>
 				<tr>
 					<th>City</th>
