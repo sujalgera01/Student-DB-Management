@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Student Database Management System</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 </head>
 <body>
 
