@@ -10,15 +10,17 @@
 	<h3><a href="login.php">Admin Login</a></h3>
 	<h1>Welcome to Student Management System</h1>
 
-	<form method="post" action="index.php">
-	<table>
+	<form method="post" action="index.php" class="form">
+	<table class="table">
 		<tr>
 			<td colspan="2">Student Information</td>
 		</tr>
 		<tr>
 			<td>Choose Standard</td>
 			<td>
-				<select name="std">
+				<select name="std" class="options">
+					<option value="1">Nursery</option>
+					<option value="1">KG</option>
 					<option value="1">1st</option>
 					<option value="2">2nd</option>
 					<option value="3">3rd</option>
